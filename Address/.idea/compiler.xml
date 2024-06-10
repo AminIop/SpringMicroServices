@@ -8,12 +8,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Address" />
+        <module name="Ecom-app" />
+        <module name="User" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Address" options="-parameters" />
+      <module name="Ecom-app" options="-parameters" />
+      <module name="User" options="-parameters" />
     </option>
   </component>
 </project>
