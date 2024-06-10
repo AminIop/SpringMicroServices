@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "21bdbb8c-a1c7-42d8-be2d-11f6efd5a77c",
+		"name": "apis-test-postMan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "10044016"
+	},
+	"item": [
+		{
+			"name": "address-api",
+			"item": [
+				{
+					"name": "http://localhost:8081/api/address",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/api/address"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8081/api/address/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/api/address/1"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8081/api/address/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8081/api/address/1"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8081/api/address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\":\"bournazil\",\r\n    \"city\":\"casablanca\",\r\n    \"country\" : \"morroco\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/api/address"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8081/api/address/2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\":\"bournazil [updated]\",\r\n    \"city\":\"casablanc [updated]\",\r\n    \"country\" : \"morroco [updated]\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/api/address/2"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
