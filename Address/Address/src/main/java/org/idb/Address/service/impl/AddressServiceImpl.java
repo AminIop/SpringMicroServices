@@ -5,10 +5,12 @@ import org.idb.Address.entity.Address;
 import org.idb.Address.mapper.AddressMapper;
 import org.idb.Address.repository.AddressRepository;
 import org.idb.Address.service.AddressService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AddressServiceImpl implements AddressService {
 
 
