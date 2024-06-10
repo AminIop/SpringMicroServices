@@ -1,5 +1,6 @@
 package org.idb.Address.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.idb.Address.dto.AddressDto;
 import org.idb.Address.entity.Address;
 import org.idb.Address.service.AddressService;
@@ -15,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
+@Slf4j
 public class AddressController {
 
 
@@ -23,6 +25,7 @@ public class AddressController {
 
     @PostMapping("/address")
     public ResponseEntity<Object> addAddress(@RequestBody AddressDto addressDto) {
+        log.info("add address");
         Address address = addressService.AddAddress(addressDto);
         if(address != null) {
             return new ResponseEntity<>(address, HttpStatus.CREATED);
@@ -32,12 +35,14 @@ public class AddressController {
 
     @GetMapping("/address")
     public ResponseEntity<List<Address>> getAllAddresses() {
+        log.info("get all addresses");
         List<Address> addressList = addressService.findAllAddresses();
         return new ResponseEntity<>(addressList, HttpStatus.OK);
     }
 
     @GetMapping("/address/{id}")
     public ResponseEntity<Object> getAddressById(@PathVariable int id) {
+        log.info("get address by id: "+id);
         Optional<Address> address = addressService.findAddressById(id);
         return address.<ResponseEntity<Object>>map(
                         value -> new ResponseEntity<>(value, HttpStatus.OK)).
@@ -47,6 +52,7 @@ public class AddressController {
 
     @DeleteMapping("/address/{id}")
     public ResponseEntity<String> deleteAddressById(@PathVariable int id) {
+        log.error("delete address by id: "+id);
         boolean isDeleted = addressService.deleteAddressById(id);
         String responseMessage = isDeleted ? "Address is deleted" : "Address not found";
         HttpStatus status = isDeleted ? HttpStatus.OK : HttpStatus.NOT_FOUND;
@@ -55,6 +61,7 @@ public class AddressController {
 
     @PutMapping("/address/{id}")
     public ResponseEntity<Object> updateAddressById(@PathVariable int id,@RequestBody AddressDto addressDto) {
+        log.info("put address by Id: "+id);
         boolean isUpdated = addressService.updateAddress(id,addressDto);
         Object responseMessage = null;
         if(isUpdated) {
